@@ -30,4 +30,4 @@ var Friends = [
   }
 ];
 
-var newFriends = [];
+module.exports = friends;
