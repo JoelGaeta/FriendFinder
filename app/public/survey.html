@@ -112,7 +112,7 @@
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <select class="custom-select" id="userInput4">
+                    <select class="custom-select" id="userInput6">
                       <option selected>Choose...</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -125,7 +125,7 @@
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <select class="custom-select" id="userInput4">
+                    <select class="custom-select" id="userInput7">
                       <option selected>Choose...</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -138,7 +138,7 @@
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <select class="custom-select" id="userInput4">
+                    <select class="custom-select" id="userInput8">
                       <option selected>Choose...</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -151,7 +151,7 @@
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <select class="custom-select" id="userInput4">
+                    <select class="custom-select" id="userInput9">
                       <option selected>Choose...</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -164,7 +164,7 @@
                     </div>
                   </div>
                   <div class="input-group mb-3">
-                    <select class="custom-select" id="userInput4">
+                    <select class="custom-select" id="userInput10">
                       <option selected>Choose...</option>
                       <option value="1">1</option>
                       <option value="2">2</option>
@@ -177,16 +177,62 @@
                     </div>
                   </div>
               </div>
-
+              <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+      <div id= "resultsModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal">
+                &times;
+              </button>
+              <h2 class="modal-title">Best Match</h2>
+              </div>
+              <div class="modal-body">
+                <h2 id="matchName"></h2>
+                <img
+                id="imgMatch"
+                src=""
+                alt="place holder image"
+                />
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">
+                    close
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
    
    
     
 
      
- <button type="submit" class="btn btn-primary">Submit</button>
+ 
  <script type=text/javascript>
-
+var userData = {
+  name: $("#name").val(),
+  photo: $("#photo").val(),
+  scores: [
+    $("userInput1").val(),
+    $("userInput2").val(),
+    $("userInput3").val(),
+    $("userInput4").val(),
+    $("userInput5").val(),
+    $("userInput6").val(),
+    $("userInput7").val(),
+    $("userInput8").val(),
+    $("userInput9").val(),
+    $("userInput10").val(),
+  ]
+};
+$.post(currentURL + "/api/friends", userData, function(data){
+  $(".Name").text(data.name);
+  $(".Photo").attr("src", data.photo);
+  $("#resultsModal").modal("toggle");
+  })
  </script>
      
   </body>

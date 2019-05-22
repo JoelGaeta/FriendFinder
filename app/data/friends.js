@@ -1,4 +1,4 @@
-var Friends = [
+var friends = [
   {
     name: "Bryan Hadaway",
     photo:
